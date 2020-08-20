@@ -25,19 +25,22 @@ SECRET_KEY = '6y^wct6a2_t=py(q53nm&@(rnhb7_s1h6!t%f(-s=!_$*s=35$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'paycomuz',
+    'store',
+    'paycom',
+    'clickuz',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store.apps.StoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +103,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+#ClickUZ
+CLICK_SETTINGS = {
+    'service_id':'1',
+    'merchant_id':'1',
+    'secret_key':'1'
+}
+
+#PaycomUz
+PAYCOM_SETTINGS = {
+    "PAYCOM_ENV": False, #"https://checkout.test.paycom.uz/api",  # test host
+    "TOKEN": "5f3e4497ebde7a75673b8c43",  # token
+    "SECRET_KEY": "HQma?i0XGyDTjt&@HWbNJZsAhF7VNirNc4YO",  # password
+    "ACCOUNTS": {
+        "KEY_1": "Citynet",
+        "KEY_2": None  # or "type"
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

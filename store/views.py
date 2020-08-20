@@ -5,6 +5,30 @@ import datetime
 from .models import *
 from . utils import cartData, guestOrder
 
+from paycomuz.views import MerchantAPIView
+from paycomuz.methods_subscribe_api import Paycom
+
+class CheckOrder(Paycom):
+    def check_order(self, amount, account):
+        return self.ORDER_FOUND
+
+class TestView(MerchantAPIView):
+    VALIDATE_CLASS = CheckOrder
+
+
+from clickuz.views import ClickUzMerchantAPIView
+from clickuz import ClickUz
+
+class OrderCheckAndPayment(ClickUz):
+    def check_order(self, order_id: str, amount: str):
+        return self.ORDER_FOUND
+
+    def successfully_payment(self, order_id: str, transaction: object):
+        print(order_id)
+
+class TestViewClick(ClickUzMerchantAPIView):
+    VALIDATE_CLASS = OrderCheckAndPayment
+
 def store(request):
     product = Product.objects.all()
     data = cartData(request)

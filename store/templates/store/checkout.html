@@ -58,12 +58,12 @@
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="{{ item.product.imageUrl }}"></div>
                 <div style="flex:2"><p>{{ item.product.name }}</p></div>
-                <div style="flex:1"><p>${{ item.product.price }}</p></div>
+                <div style="flex:1"><p>UZS {{ item.product.price }}</p></div>
                 <div style="flex:1"><p>x{{ item.quantity }}</p></div>
             </div>
             {% endfor %}
             <h5>Items: {{ order.get_cart_items }}</h5>
-            <h5>Total: ${{ order.get_cart_total|floatformat:2 }}</h5>
+            <h5>Total: UZS {{ order.get_cart_total|floatformat:2 }}</h5>
         </div>
     </div>
 </div>
@@ -122,7 +122,7 @@
             shippingInfo.state = form.state.value
             shippingInfo.zipcode = form.zipcode.value
         }
-        if (user === 'AnonymousUser') {
+        if (user == 'AnonymousUser') {
             userFormdata.name = form.name.value
             userFormdata.email = form.email.value
         }

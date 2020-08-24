@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'paycomuz',
     'store',
     'paycom',
-    'clickuz',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -103,21 +102,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-#ClickUZ
-CLICK_SETTINGS = {
-    'service_id':'1',
-    'merchant_id':'1',
-    'secret_key':'1'
-}
-
 #PaycomUz
 PAYCOM_SETTINGS = {
     "PAYCOM_ENV": False, #"https://checkout.test.paycom.uz/api",  # test host
-    "TOKEN": "5f3e4497ebde7a75673b8c43",  # token
-    "SECRET_KEY": "HQma?i0XGyDTjt&@HWbNJZsAhF7VNirNc4YO",  # password
+    "TOKEN": "5f3fae2e6f42074a3dee6a4e",  # token
+    "SECRET_KEY": "c#b%YzF2rjNedw0&6fJ7uOrdYS@b%2eXgVzK",  # password
     "ACCOUNTS": {
-        "KEY_1": "Citynet",
+        "KEY_1": "order_id",
         "KEY_2": None  # or "type"
     }
 }
